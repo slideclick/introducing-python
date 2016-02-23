@@ -6,7 +6,7 @@ import requests
 
 def login(): 
     s = requests.session() #这个估计是为了获得验证码还有post
-    s.get('http://www.guahao.com/user/login') 
+    s.get('http://www.guahao.com/user/login') #这样下面就会发送session
     captcha_content = s.get('http://www.guahao.com/validcode/genimage/1').content 
     with open('dic.jpeg', 'wb') as fp: 
         fp.write(captcha_content) 
