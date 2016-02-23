@@ -7,7 +7,7 @@ with open('chinese.txt','wb') as fb:
     fb.write(s)#我用二进制方式写进文件，那么以UFT8打开就可以正确显示
 
 with open('chinese.txt','r') as fb:
-    st= fb.read()#read会失败，以OS默认的gbk去解码会失败
+    pass#st= fb.read()#read会失败，以OS默认的gbk去解码会失败
 
 with open('chinese.txt','r',encoding='utf-8') as fb:
     st= fb.read()#read会成功，因为我指定了解码格式是utf-8   
@@ -19,6 +19,10 @@ if rs:
     print(rs.group())
     print(rs.group(1))
     
-rs = re.search(r'(山).*\1',sd) 
+rs = re.search(r'(山)(.*)\1',sd) 
 if rs:
     print(rs.group())
+    print(rs.group(0))
+    print(rs.group(1))
+    print(rs.groups())
+    
