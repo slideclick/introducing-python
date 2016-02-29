@@ -24,15 +24,18 @@ if rs:
     print(rs.group())
     print(rs.group(1))
 print()    
+
 rs = re.search(r'(山)(.*)\1',sd) 
 if rs:
     print(rs.group())
-    print(rs.group(0))
+    print(rs.group(0))# same as group()
     print(rs.group(1))
     print(rs.group(2))
-    print(rs.groups())
+    print(rs.groups())#返回一个tupel, groups()[0] == group(1)
     print(rs.groupdict())
-print()   
+print(rs.groups()[0] == rs.group(1))  # True
+
+ 
 rs = re.search(r'(?P<shang>山)(.*)(?P=shang)',sd) 
 if rs:
     print(rs.group())
